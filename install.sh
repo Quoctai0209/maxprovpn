@@ -39,7 +39,13 @@ read -p "Giới hạn tốc độ :" SpeedLimit
   echo "Tốc Độ tối đa là: ${SpeedLimit}"
   echo "-------------------------------"
   
-
+   #IP vps
+ read -p "Nhập domain hoặc ip  :" CertDomain
+   [ -z "${CertDomain}" ] 
+   echo "-------------------------------"
+   echo "ip : ${CertDomain}"
+   echo "-------------------------------"
+   
   
 }
 
@@ -110,6 +116,7 @@ EOF
   sed -i "s|NodeID:.*|NodeID: ${node_id}|" ./config.yml
   sed -i "s|DeviceLimit:.*|DeviceLimit: ${DeviceLimit}|" ./config.yml
   sed -i "s|SpeedLimit:.*|SpeedLimit: ${SpeedLimit}|" ./config.yml
+  sed -i "s|CertDomain:.*|CertDomain: \"${CertDomain}\"|" ./config.yml
 
 
   }
